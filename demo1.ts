@@ -2,6 +2,6 @@
 // ts file
 // ts-node 直接运行ts文件 npm install ts-node -D
 // npx ts-node file.ts
-let a: number = 123;
+let a: number = 1234;
 
 console.log(a)
