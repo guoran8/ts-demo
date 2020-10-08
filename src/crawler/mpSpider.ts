@@ -1,6 +1,8 @@
 /**
  * crawler类只提供公用的操作
  * 每个爬取对象对应不同的爬虫
+ * 使用组合设计模式把特定的分析功能拆分出来
+ * 方便后期的定制爬取
  */
 import cheerio from 'cheerio';
 import fs from 'fs';
@@ -24,6 +26,18 @@ interface JsonFile {
 }
 
 class PMSpider implements Spider {
+  private constructor() {}
+  private static instance: PMSpider
+
+  static getInstance(): PMSpider {
+    if (!PMSpider.instance) {
+      PMSpider.instance = new PMSpider()
+      return PMSpider.instance
+    }
+
+    return this.instance
+  }
+
   public start(html: string, filePath: string): string {
     const result = this.parseArticleList(html)
     return JSON.stringify(this.generateJson(result, filePath))
@@ -55,7 +69,7 @@ class PMSpider implements Spider {
     }
   }
 
-  generateJson(result: Result, filePath: string): JsonFile {
+  private generateJson(result: Result, filePath: string): JsonFile {
     let fileContent: JsonFile = {}
     if (fs.existsSync(filePath)) {
       fileContent = JSON.parse(fs.readFileSync(filePath, 'utf-8'))

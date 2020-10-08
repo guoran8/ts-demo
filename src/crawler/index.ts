@@ -19,22 +19,22 @@ class Crawler {
   }
 
   // 避免 getRawHtml和parseArticleList 方法会耦合
-  async startSpider() {
+  private async startSpider() {
     const html = await this.getRawHtml()
     const result = this.spider.start(html, this.savePath)
     this.saveFile(result)
   }
 
-  saveFile(writeContent: string) {
+  private saveFile(writeContent: string) {
     fs.writeFileSync(this.savePath, writeContent)
   }
 
-  async getRawHtml(): Promise<string>{
+  private async getRawHtml(): Promise<string>{
     const result = await superagent.get(this.targetUrl)
     return result.text
   }
 }
 
 const targetUrl = 'http://www.woshipm.com/category/operate'
-const spider = new MPSpider()
+const spider = MPSpider.getInstance()
 const crawler = new Crawler(targetUrl, spider)
