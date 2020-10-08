@@ -1,6 +1,6 @@
 // 基础类型
 // null undefined, symbol, boolean, void
-const num: number = 123;
+const num2: number = 123;
 const str: string = 'string';
 
 // 对象类型 Object []
@@ -13,8 +13,8 @@ const teacher: {
 }
 const arr: number[] = [1,2,3,4]
 
-class Person {}
+class Person2 {}
 
-const p: Person = new Person();
+const p2: Person2 = new Person2();
 const fun: () => number = () => 123;
 

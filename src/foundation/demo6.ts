@@ -9,8 +9,8 @@ const Person: { name: string} = { name: 'guoran'}
 const arr5: { name: string }[] = [Person]
 
 // 类型别名
-type User = { name: string, age: number}
-const arr6: User[] = [{ name: 'guoran', age: 8}]
+type User6 = { name: string, age: number}
+const arr6: User6[] = [{ name: 'guoran', age: 8}]
 
 class Teacher {
   name: string;
