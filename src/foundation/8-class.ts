@@ -39,6 +39,10 @@ class Person3 {
   public name: string
   private wife: string
   protected tool: string
+
+  private showVar() {
+    console.log(this.wife)
+  }
 }
 
 class Friend extends Person3 {
@@ -79,4 +83,4 @@ class Boy extends Person4 {
   }
 }
 
-const boy = new Boy(8)
+const boy8 = new Boy(8)

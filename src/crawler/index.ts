@@ -38,5 +38,5 @@ class Crawler {
 const targetUrl = 'http://www.woshipm.com/category/operate'
 const spider = MPSpider.getInstance()
 const crawler = new Crawler(targetUrl, spider)
-
+// this is test code block
 console.log('guoran1111')
