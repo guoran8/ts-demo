@@ -3,7 +3,7 @@ function hello1() {}
 const hello2 = function () {};
 const hello3 = () => {};
 
-function add(x: number, y: number): number {
+function addFour(x: number, y: number): number {
   return x + y; // 类型推断返回值
 }
 
